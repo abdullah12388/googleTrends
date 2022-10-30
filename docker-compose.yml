@@ -1,0 +1,22 @@
+version: "3.10"                                        #python version 3.10.8
+services:
+  app:                                                 #container details
+    build: .                                           #build our app in the same directory
+    volumes:                                           #create a directory named django in the container
+      - .:/googleTrends                                #directory name
+    ports:                                             #the port we use to access the app in the container
+      - "8000:8000"
+    image: app:django                                  #the image name
+    container_name: django-container                   #the container name
+    command: python manage.py runserver 0.0.0.0:8000   #command line that run the django server
+    depends_on:
+      - db
+  db:                                                  #database services configurations
+    image: postgres                                    #the image name
+    volumes:                                           #the place where the database stores
+      - ./database/db:/var/lib/postgresql/data         #database stores under directory called database/db
+    environment:                                       #configure the database environment variables
+      - POSTGRES_DB=postgres                           #database name
+      - POSTGRES_USER=postgres                         #database username
+      - POSTGRES_PASSWORD=postgres                     #database password
+    container_name: postgres_db                        #container name

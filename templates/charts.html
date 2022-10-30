@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charts</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+    <div class="chart_container">
+        <h1>Historical Interests</h1>
+        <div id="hisDiv"></div>
+        <h1>Interest By Region</h1>
+        <div id="regDiv"></div>
+        <input type="hidden" name="{{id}}" id="hidden_id">
+    </div>
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/xy.js' %}"></script>
+    <script src="{% static 'js/Animated.js' %}"></script>
+    <script src="{% static 'js/de_DE.js' %}"></script>
+    <script src="{% static 'js/germanyLow.js' %}"></script>
+    <script src="{% static 'js/notosans-sc.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/map.js' %}"></script>
+    <script src="{% static 'js/usaLow.js' %}"></script>
+    <script src="{% static 'js/xychart.js' %}"></script>
+</body>
+</html>

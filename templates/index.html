@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>google trends</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" action="{% url 'charts' %}" class="search-bar">
+            {% csrf_token %}
+            <input type="text" placeholder="Google Trends" name="ky_wd" required>
+            <button type="submit"><img src="{% static 'img/search.png' %}"></button>
+        </form>
+    </div>
+</body>
+</html>
